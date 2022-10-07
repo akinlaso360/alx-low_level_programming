@@ -1,42 +1,19 @@
 #include "main.h"
 
 /**
- * str_concat - concatenates two strings.
- * @s1: first string.
- * @s2: second string.
- *
- * Return: pointer of an array of chars
+ * _memset - copy char
+ * @s: string
+ * @b: input
+ * @n: bytes
+ * Return: string
  */
-char *str_concat(char *s1, char *s2)
+char *_memset(char *s, char b, unsigned int n)
 {
-	char *strout;
-	unsigned int i, j, k, limit;
+	unsigned int i;
 
-	if (s1 == NULL)
-		s1 = "";
-	if (s2 == NULL)
-		s2 = "";
-
-	for (i = 0; s1[i] != '\0'; i++)
-		;
-
-	for (j = 0; s2[j] != '\0'; j++)
-		;
-
-	strout = malloc(sizeof(char) * (i + j + 1));
-
-	if (strout == NULL)
+	for (i = 0; i < n; i++)
 	{
-		free(strout);
-		return (NULL);
+		s[i] = b;
 	}
-
-	for (k = 0; k < i; k++)
-		strout[k] = s1[k];
-
-	limit = j;
-	for (j = 0; j <= limit; k++, j++)
-		strout[k] = s2[j];
-
-	return (strout);
+	return (s);
 }
